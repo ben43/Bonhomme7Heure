@@ -3,6 +3,7 @@ DerivedDataCache
 Intermediate
 Saved
 
+*.blend1
 *.VC.db
 *.opensdf
 *.opendb
