@@ -4,6 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Components/InputComponent.h"
+#include "GameFramework/Controller.h"
+#include "GameFramework/CharacterMovementComponent.h"
+#include "Camera/CameraComponent.h"
+#include "GameFramework/SpringArmComponent.h"
 #include "MainCharacter.generated.h"
 
 UCLASS()
@@ -14,6 +19,15 @@ class BONHOMME7HEURE_API AMainCharacter : public ACharacter
 public:
 	// Sets default values for this character's properties
 	AMainCharacter();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
+		USpringArmComponent* CameraBoom;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
+		UCameraComponent* FollowCamera;
+
+	void MoveForward(float Axis);
+	void MoveRight(float Axis);
 
 protected:
 	// Called when the game starts or when spawned
