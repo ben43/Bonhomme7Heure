@@ -2,6 +2,7 @@ Binaries
 DerivedDataCache
 Intermediate
 Saved
+Plugins
 
 *.blend1
 *.VC.db
