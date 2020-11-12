@@ -58,6 +58,7 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 
 void UGrabber::Grab()
 {
+	UE_LOG(LogTemp, Warning, TEXT("Grabber pressed."));
 
 	// ray-cast and return the body that was touched by the it.
 	FHitResult HitResult = GetFirstPhysicBodyInReach();
@@ -120,6 +121,16 @@ FHitResult UGrabber::GetFirstPhysicBodyInReach()
 	//Store the actor we just hit someone
 	AActor* ActorHit = Hit.GetActor();
 
+	DrawDebugLine(
+		GetWorld(),
+		playerViewLocation,
+		LineTraceEnd,
+		FColor(0, 255, 0),
+		false,
+		0.f,
+		0,
+		5.f
+	);
 	return Hit;
 
 }
