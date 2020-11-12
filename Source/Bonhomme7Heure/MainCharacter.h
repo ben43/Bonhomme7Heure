@@ -26,8 +26,11 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
 		UCameraComponent* FollowCamera;
 
-	void MoveForward(float Axis);
-	void MoveRight(float Axis);
+	UFUNCTION(BlueprintCallable)
+		void MoveForward(float Axis);
+
+	UFUNCTION(BlueprintCallable)
+		void MoveRight(float Axis);
 
 protected:
 	// Called when the game starts or when spawned
