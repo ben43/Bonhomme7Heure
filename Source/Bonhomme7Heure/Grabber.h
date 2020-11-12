@@ -41,7 +41,11 @@ private:
 		void Release();
 
 	void FindPhysicsHandle();
+	void FindArrowComponent();
 	void SetupInputComponent();
+
+	//FVector playerViewLocation;
+	//FVector playerViewRotation;
 
 	FHitResult GetFirstPhysicBodyInReach();
 

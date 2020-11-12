@@ -24,7 +24,19 @@ void UGrabber::BeginPlay()
 
 	// ...
 	FindPhysicsHandle();
+
+	FindArrowComponent();
 	
+}
+
+void UGrabber::FindArrowComponent()
+{
+	playerArrow = GetOwner()->FindComponentByClass<UArrowComponent>();
+	if(!playerArrow)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("%s does not have an arrow component, put one because"))
+	}
+
 }
 
 //This find the physic handle component for the grabber and stores it in a variable declared in the header file.
@@ -105,14 +117,14 @@ FHitResult UGrabber::GetFirstPhysicBodyInReach()
 	FCollisionQueryParams TraceParams(
 	FName(TEXT("")), // This is the trace tag, not sure what it means ...
 	false, //Decide if we use complex collision
-	GetOwner() // This are the ignore actors
+	GetOwner() // This are the ignored actors
 	);
 
 	//Detect what we just hit
 
 	GetWorld()->LineTraceSingleByObjectType(
 		OUT Hit,				//out the object hit
-		playerViewLocation,		//Start of the line, in this case player vector
+		playerViewLocation,		//Start of the line, in this case the FVector of the camera emplacement, so the "eye" of the player
 		LineTraceEnd,			//End of the line.
 		FCollisionObjectQueryParams(ECollisionChannel::ECC_PhysicsBody),	//This get the target info to compare with the one below
 		TraceParams	//Refer to the parameters we said we want and compare them with the target hit parameter
@@ -142,11 +154,20 @@ FVector UGrabber::GetPlayerReach()
 	FRotator playerViewRotation;
 
 	//Get player location and rotation
+
+	
 	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(
 		OUT playerViewLocation,
 		OUT playerViewRotation
 	);
+	/*
+	playerViewRotation = playerArrow->GetComponentRotation();
 
+	playerViewLocation = playerArrow->GetComponentLocation();
+
+	OUT playerViewLocation;
+	OUT playerViewRotation;
+	*/
 	//LineTrace end is created here, it is a point (FVector) at which the ray-cast will end
 	FVector LineTraceEnd = playerViewLocation + playerViewRotation.Vector() * Reach;
 	
