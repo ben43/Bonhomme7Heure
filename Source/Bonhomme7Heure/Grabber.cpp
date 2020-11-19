@@ -31,12 +31,23 @@ void UGrabber::BeginPlay()
 
 void UGrabber::FindArrowComponent()
 {
+	for (TObjectIterator<UArrowComponent> Itr; Itr; ++Itr) 
+	{
+		if(Itr->GetName() == "GrabberOrigin")
+		{
+			playerArrow = *Itr;
+		}
+	
+	}
+
+
+	/*
 	playerArrow = GetOwner()->FindComponentByClass<UArrowComponent>();
 	if(!playerArrow)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("%s does not have an arrow component, put one because"))
 	}
-
+	*/
 }
 
 //This find the physic handle component for the grabber and stores it in a variable declared in the header file.
@@ -133,6 +144,11 @@ FHitResult UGrabber::GetFirstPhysicBodyInReach()
 	//Store the actor we just hit someone
 	AActor* ActorHit = Hit.GetActor();
 
+	if(ActorHit)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("An actor was hit by the grabber"));
+	}
+
 	DrawDebugLine(
 		GetWorld(),
 		playerViewLocation,
@@ -155,19 +171,23 @@ FVector UGrabber::GetPlayerReach()
 
 	//Get player location and rotation
 
-	
+	/*
 	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(
 		OUT playerViewLocation,
 		OUT playerViewRotation
 	);
-	/*
-	playerViewRotation = playerArrow->GetComponentRotation();
+	*/
+	
+	//This get the arrow component Location and Rotation and use it as the grabber base. 
+	playerViewRotation = playerArrow->GetComponentRotation() ;
 
-	playerViewLocation = playerArrow->GetComponentLocation();
+	playerViewLocation = playerArrow->GetComponentLocation();//+ GetOwner()->GetActorLocation();        //playerArrow->GetComponentLocation() + GetOwner()->GetActorLocation();
+
+	playerArrow->GetForwardVector();
 
 	OUT playerViewLocation;
 	OUT playerViewRotation;
-	*/
+	
 	//LineTrace end is created here, it is a point (FVector) at which the ray-cast will end
 	FVector LineTraceEnd = playerViewLocation + playerViewRotation.Vector() * Reach;
 	
