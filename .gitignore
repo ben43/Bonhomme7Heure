@@ -9,7 +9,7 @@ Plugins
 *.opensdf
 *.opendb
 *.sdf
-*.vs
+
 *.suo
 *.xcodeproj
 *.xcworkspace
