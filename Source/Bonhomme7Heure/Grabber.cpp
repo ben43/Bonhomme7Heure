@@ -120,6 +120,8 @@ FHitResult UGrabber::GetFirstPhysicBodyInReach()
 {
 
 	FVector playerViewLocation;
+	FRotator playerViewRotation;
+	FVector StartingPoint = playerViewLocation + playerViewRotation.Vector();
 	FVector LineTraceEnd = GetPlayerReach();
 
 	FHitResult Hit;
