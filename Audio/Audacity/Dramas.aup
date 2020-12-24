@@ -1,0 +1,108 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="Dramas_data" version="1.3.0" audacityversion="2.4.2" sel0="0.0000000000" sel1="0.0000000000" vpos="0" h="0.0000000000" zoom="35.5083088386" rate="48000.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="TITLE" value="Dramatic Stabs"/>
+		<tag name="ARTIST" value="sclolex"/>
+		<tag name="YEAR" value="2013"/>
+		<tag name="GENRE" value="Sound Effect"/>
+	</tags>
+	<wavetrack name="210015__sclolex__dramaticstabs" isSelected="1" height="150" minimized="1" channel="0" linked="1" mute="0" solo="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="270697">
+				<waveblock start="0">
+					<simpleblockfile filename="e08088fd.au" len="238150" min="-0.355127" max="0.324141" rms="0.041143"/>
+				</waveblock>
+				<waveblock start="238150">
+					<simpleblockfile filename="e08080fa.au" len="32547" min="-0.006776" max="0.008157" rms="0.001896"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="210015__sclolex__dramaticstabs" isSelected="1" height="150" minimized="1" channel="1" linked="0" mute="0" solo="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="270697">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808fbe.au" len="238150" min="-0.331242" max="0.337559" rms="0.041482"/>
+				</waveblock>
+				<waveblock start="238150">
+					<simpleblockfile filename="e08081b4.au" len="32547" min="-0.007608" max="0.006441" rms="0.001801"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="210015__sclolex__dramaticstabs" isSelected="0" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="156132">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808d32.au" len="156132" min="-0.509131" max="0.466345" rms="0.054737"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="210015__sclolex__dramaticstabs" isSelected="0" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="156132">
+				<waveblock start="0">
+					<simpleblockfile filename="e08087fe.au" len="156132" min="-0.371063" max="0.400965" rms="0.058117"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="210015__sclolex__dramaticstabs" isSelected="0" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="259545">
+				<waveblock start="0">
+					<simpleblockfile filename="e080883a.au" len="254033" min="-0.399314" max="0.365998" rms="0.049852"/>
+				</waveblock>
+				<waveblock start="254033">
+					<simpleblockfile filename="e0808ffb.au" len="5512" min="-0.004631" max="0.004873" rms="0.001612"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="210015__sclolex__dramaticstabs" isSelected="0" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="259545">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808025.au" len="254033" min="-0.407307" max="0.386582" rms="0.046288"/>
+				</waveblock>
+				<waveblock start="254033">
+					<simpleblockfile filename="e0808207.au" len="5512" min="-0.004974" max="0.004776" rms="0.001594"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="210015__sclolex__dramaticstabs" isSelected="0" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="323080">
+				<waveblock start="0">
+					<simpleblockfile filename="e08084d5.au" len="192994" min="-0.864204" max="0.664638" rms="0.145052"/>
+				</waveblock>
+				<waveblock start="192994">
+					<simpleblockfile filename="e0808efd.au" len="130086" min="-0.084143" max="0.104303" rms="0.017305"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="210015__sclolex__dramaticstabs" isSelected="0" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="323080">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808685.au" len="192994" min="-0.982825" max="0.754312" rms="0.154985"/>
+				</waveblock>
+				<waveblock start="192994">
+					<simpleblockfile filename="e0808388.au" len="130086" min="-0.097491" max="0.095745" rms="0.020336"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
