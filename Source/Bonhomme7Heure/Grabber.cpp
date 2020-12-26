@@ -94,17 +94,26 @@ void UGrabber::Grab()
 	//Get the range of the ray-cast for the handler to grab it at the good range
 	FVector LineTraceEnd = GetPlayerReach();
 
+	UPrimitiveComponent* ActorPrimitiveComponent = ActorHit->FindComponentByClass<UPrimitiveComponent>();
+
+	float ActorMass = ActorPrimitiveComponent->GetMass();
+
 	//Attach the actor if it is a valid actor
 	if(ActorHit)
 	{
-		if (!physichandler) { return; } //verify if there is a physichandler to avoid crash
+		if (ActorMass < GrabberMaxMass) 
+		{
 
-		physichandler->GrabComponentAtLocation(
-			ComponentToGrab,
-			NAME_None,
-			LineTraceEnd
-		);
+			if (!physichandler) { return; } //verify if there is a physichandler to avoid crash
+
+			physichandler->GrabComponentAtLocation(
+				ComponentToGrab,
+				NAME_None,
+				LineTraceEnd
+			);
+		}
 	}
+
 
 
 

@@ -29,6 +29,8 @@ private:
 
 	UPROPERTY(EditAnywhere)
 		float Reach = 200.f;
+	UPROPERTY(EditAnywhere)
+		float GrabberMaxMass = 0.0f;
 
 	UPhysicsHandleComponent* physichandler = nullptr;
 	UInputComponent* InputComponent = nullptr;
