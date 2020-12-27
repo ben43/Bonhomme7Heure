@@ -1,0 +1,88 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="Clockticking_data" version="1.3.0" audacityversion="2.4.2" sel0="0.0000000000" sel1="0.4346485261" vpos="0" h="0.0000000000" zoom="27.1764549729" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="TITLE" value="InspectorJ"/>
+		<tag name="ARTIST" value="17.4.16"/>
+	</tags>
+	<wavetrack name="343130__inspectorj__ticking-clock-a" isSelected="0" height="150" minimized="1" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="19473">
+				<waveblock start="0">
+					<simpleblockfile filename="e08084d1.au" len="19473" min="-0.15909" max="0.241537" rms="0.048505"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="343130__inspectorj__ticking-clock-a" isSelected="1" height="150" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="19168">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808274.au" len="19168" min="-0.095454" max="0.195085" rms="0.0316"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="343130__inspectorj__ticking-clock-a" isSelected="1" height="150" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="19067">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808bf9.au" len="19067" min="-0.134017" max="0.274493" rms="0.057356"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="343130__inspectorj__ticking-clock-a" isSelected="1" height="150" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="18864">
+				<waveblock start="0">
+					<simpleblockfile filename="e08084bc.au" len="18864" min="-0.124804" max="0.169569" rms="0.029214"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="343130__inspectorj__ticking-clock-a" isSelected="1" height="150" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="18864">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808ca2.au" len="18864" min="-0.095289" max="0.176164" rms="0.029299"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="343130__inspectorj__ticking-clock-a" isSelected="1" height="150" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="18864">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808fef.au" len="18864" min="-0.108467" max="0.115575" rms="0.030747"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="343130__inspectorj__ticking-clock-a" isSelected="1" height="150" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="18864">
+				<waveblock start="0">
+					<simpleblockfile filename="e080885d.au" len="18864" min="-0.170432" max="0.228136" rms="0.040079"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="343130__inspectorj__ticking-clock-a" isSelected="1" height="150" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="18864">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808616.au" len="18864" min="-0.106221" max="0.112968" rms="0.025706"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
