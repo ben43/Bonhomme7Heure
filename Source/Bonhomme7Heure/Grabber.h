@@ -51,7 +51,9 @@ private:
 
 	FHitResult GetFirstPhysicBodyInReach();
 
-	FVector GetPlayerReach();
+	FVector GetPlayerViewLocation();
+
+	FVector GetLineTraceEnd();
 
 
 };

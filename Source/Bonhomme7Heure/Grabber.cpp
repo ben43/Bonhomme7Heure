@@ -41,14 +41,11 @@ void UGrabber::FindArrowComponent()
 	
 	}
 
-
-	/*
-	playerArrow = GetOwner()->FindComponentByClass<UArrowComponent>();
 	if(!playerArrow)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("%s does not have an arrow component, put one because"))
+		UE_LOG(LogTemp, Error, TEXT("The main character doesnt have the grabber origin so the grabber will therefor not work."))
 	}
-	*/
+	
 }
 
 //This find the physic handle component for the grabber and stores it in a variable declared in the header file.
@@ -75,7 +72,7 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 	//Make the object follow the player
 	if(physichandler->GrabbedComponent)
 	{
-		physichandler->SetTargetLocation(GetPlayerReach());
+		physichandler->SetTargetLocation(GetLineTraceEnd());
 	}
 }
 
@@ -93,7 +90,7 @@ void UGrabber::Grab()
 	AActor* ActorHit = HitResult.GetActor();
 
 	//Get the range of the ray-cast for the handler to grab it at the good range
-	FVector LineTraceEnd = GetPlayerReach();
+	FVector LineTraceEnd = GetLineTraceEnd();
 
 
 
@@ -101,6 +98,8 @@ void UGrabber::Grab()
 	if(ActorHit)
 	{
 		UPrimitiveComponent* ActorPrimitiveComponent = ActorHit->FindComponentByClass<UPrimitiveComponent>();
+
+		ActorPrimitiveComponent->SetSimulatePhysics(true);
 
 		float ActorMass = ActorPrimitiveComponent->GetMass();
 
@@ -124,17 +123,22 @@ void UGrabber::Grab()
 
 void UGrabber::Release()
 {
+	
+
 	physichandler->ReleaseComponent();
 }
 
 
 FHitResult UGrabber::GetFirstPhysicBodyInReach()
 {
-
-	FVector playerViewLocation;
+	FVector playerViewLocation = GetPlayerViewLocation();
 	FRotator playerViewRotation;
-	FVector StartingPoint = playerViewLocation + playerViewRotation.Vector();
-	FVector LineTraceEnd = GetPlayerReach();
+	//FVector StartingPoint = playerViewLocation + playerViewRotation.Vector();
+	FVector LineTraceEnd = GetLineTraceEnd();
+
+	FString playerViewLocationString = playerViewLocation.ToString();
+
+	UE_LOG(LogTemp, Warning, TEXT("The player view location is : %s"),*playerViewLocationString);
 
 	FHitResult Hit;
 
@@ -146,7 +150,7 @@ FHitResult UGrabber::GetFirstPhysicBodyInReach()
 	);
 
 	//Detect what we just hit
-
+	
 	GetWorld()->LineTraceSingleByObjectType(
 		OUT Hit,				//out the object hit
 		playerViewLocation,		//Start of the line, in this case the FVector of the camera emplacement, so the "eye" of the player
@@ -160,7 +164,7 @@ FHitResult UGrabber::GetFirstPhysicBodyInReach()
 
 	if(ActorHit)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("An actor was hit by the grabber"));
+		UE_LOG(LogTemp, Warning, TEXT("%s was hit by the grabber"), *ActorHit->GetName());
 	}
 
 	DrawDebugLine(
@@ -169,7 +173,7 @@ FHitResult UGrabber::GetFirstPhysicBodyInReach()
 		LineTraceEnd,
 		FColor(0, 255, 0),
 		false,
-		0.f,
+		4.f,
 		0,
 		5.f
 	);
@@ -177,33 +181,34 @@ FHitResult UGrabber::GetFirstPhysicBodyInReach()
 
 }
 
-
-FVector UGrabber::GetPlayerReach()
+//Get the LineTraceEnd (0) and the playerViewLocation (1)
+FVector UGrabber::GetPlayerViewLocation()
 {
 	FVector playerViewLocation;
 	FRotator playerViewRotation;
 
 	//Get player location and rotation
-
-	/*
-	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(
-		OUT playerViewLocation,
-		OUT playerViewRotation
-	);
-	*/
 	
 	//This get the arrow component Location and Rotation and use it as the grabber base. 
 	playerViewRotation = playerArrow->GetComponentRotation() ;
 
-	playerViewLocation = playerArrow->GetComponentLocation();//+ GetOwner()->GetActorLocation();        //playerArrow->GetComponentLocation() + GetOwner()->GetActorLocation();
+	playerViewLocation = playerArrow->GetComponentLocation(); //+ GetOwner()->GetActorLocation();        //playerArrow->GetComponentLocation() + GetOwner()->GetActorLocation();
 
-	playerArrow->GetForwardVector();
+	FString playerViewLocationString = playerViewLocation.ToString();
 
-	OUT playerViewLocation;
-	OUT playerViewRotation;
-	
-	//LineTrace end is created here, it is a point (FVector) at which the ray-cast will end
-	FVector LineTraceEnd = playerViewLocation + playerViewRotation.Vector() * Reach;
-	
-	return LineTraceEnd;
+	UE_LOG(LogTemp, Warning, TEXT("The playerViewLocation in the GetPlayerViewLocation function: %s"),*playerViewLocationString);
+
+	return playerViewLocation;
+
+}
+
+//Get the lineTraceEnd
+FVector UGrabber::GetLineTraceEnd()
+{
+	FRotator playerViewRotation = playerArrow->GetComponentRotation();
+	FVector playerViewLocation = playerArrow->GetComponentLocation();
+
+	FVector lineTraceEnd = playerViewLocation + playerViewRotation.Vector() * Reach;
+
+	return lineTraceEnd;
 }
