@@ -4,6 +4,7 @@
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
 #include "Components/InputComponent.h"
+#include "Components/PrimitiveComponent.h"
 #include "Grabber.h"
 
 // Sets default values for this component's properties
@@ -94,13 +95,15 @@ void UGrabber::Grab()
 	//Get the range of the ray-cast for the handler to grab it at the good range
 	FVector LineTraceEnd = GetPlayerReach();
 
-	UPrimitiveComponent* ActorPrimitiveComponent = ActorHit->FindComponentByClass<UPrimitiveComponent>();
 
-	float ActorMass = ActorPrimitiveComponent->GetMass();
 
 	//Attach the actor if it is a valid actor
 	if(ActorHit)
 	{
+		UPrimitiveComponent* ActorPrimitiveComponent = ActorHit->FindComponentByClass<UPrimitiveComponent>();
+
+		float ActorMass = ActorPrimitiveComponent->GetMass();
+
 		if (ActorMass < GrabberMaxMass) 
 		{
 
