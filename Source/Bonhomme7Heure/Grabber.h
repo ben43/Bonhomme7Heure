@@ -17,6 +17,9 @@ public:
 	// Sets default values for this component's properties
 	UGrabber();
 
+	UFUNCTION(BlueprintImplementableEvent,Category = "ActorHit")
+		void ActorHit();
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -24,6 +27,8 @@ protected:
 public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
+
 
 private:
 
@@ -41,7 +46,6 @@ private:
 
 	UFUNCTION(BlueprintCallable)
 		void Release();
-
 
 
 	void FindPhysicsHandle();

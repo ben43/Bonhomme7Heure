@@ -24,6 +24,7 @@ void UGrabber::BeginPlay()
 	Super::BeginPlay();
 
 	// ...
+
 	FindPhysicsHandle();
 
 	FindArrowComponent();
@@ -99,9 +100,11 @@ void UGrabber::Grab()
 	{
 		UPrimitiveComponent* ActorPrimitiveComponent = ActorHit->FindComponentByClass<UPrimitiveComponent>();
 
-		ActorPrimitiveComponent->SetSimulatePhysics(true);
+		//ActorPrimitiveComponent->SetSimulatePhysics(true);
 
 		float ActorMass = ActorPrimitiveComponent->GetMass();
+
+		//ActorHit();
 
 		if (ActorMass < GrabberMaxMass) 
 		{
@@ -212,3 +215,6 @@ FVector UGrabber::GetLineTraceEnd()
 
 	return lineTraceEnd;
 }
+
+
+
