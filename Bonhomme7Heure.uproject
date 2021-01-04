@@ -32,6 +32,10 @@
 				"Linux",
 				"Mac"
 			]
+		},
+		{
+			"Name": "ApexDestruction",
+			"Enabled": true
 		}
 	]
 }
