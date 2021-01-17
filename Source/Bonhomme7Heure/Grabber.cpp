@@ -90,6 +90,8 @@ void UGrabber::Grab()
 
 	AActor* ActorHit = HitResult.GetActor();
 
+	ActorsHits = ActorHit;
+
 	//Get the range of the ray-cast for the handler to grab it at the good range
 	FVector LineTraceEnd = GetLineTraceEnd();
 
