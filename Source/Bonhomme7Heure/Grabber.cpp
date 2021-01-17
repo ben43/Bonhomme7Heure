@@ -172,6 +172,7 @@ FHitResult UGrabber::GetFirstPhysicBodyInReach()
 		UE_LOG(LogTemp, Warning, TEXT("%s was hit by the grabber"), *ActorHit->GetName());
 	}
 
+	/*
 	DrawDebugLine(
 		GetWorld(),
 		playerViewLocation,
@@ -182,6 +183,7 @@ FHitResult UGrabber::GetFirstPhysicBodyInReach()
 		0,
 		5.f
 	);
+	*/
 	return Hit;
 
 }
