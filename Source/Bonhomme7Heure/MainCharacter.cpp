@@ -15,7 +15,7 @@ AMainCharacter::AMainCharacter()
 
 	GetCharacterMovement()->bOrientRotationToMovement = true;
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f);
-	GetCharacterMovement()->JumpZVelocity = 600.0f;
+	GetCharacterMovement()->JumpZVelocity = 300.0f;
 	GetCharacterMovement()->AirControl = 0.2f;
 
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
@@ -65,6 +65,7 @@ void AMainCharacter::MoveForward(float Axis)
 	FRotator YawRotation(0.0f, Rotation.Yaw, 0.0f);
 
 	FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+	ForwardAxisValue = Axis;
 	AddMovementInput(Direction, Axis);
 }
 
@@ -75,5 +76,33 @@ void AMainCharacter::MoveRight(float Axis)
 	FRotator YawRotation(0.0f, Rotation.Yaw, 0.0f);
 
 	FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
+	RightAxisValue = Axis;
 	AddMovementInput(Direction, Axis);
 }
+
+void AMainCharacter::StopMovement()
+{
+	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
+
+	GetOwner()->DisableInput(PlayerController);
+
+
+
+	/*FRotator Rotation = Controller->GetControlRotation();
+	FRotator YawRotation(0.0f, Rotation.Yaw, 0.0f);
+
+	FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
+
+
+	AddMovementInput(Direction, 0.0f);*/
+	
+}
+
+void AMainCharacter::StartMovement()
+{
+	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
+
+	GetOwner()->EnableInput(PlayerController);
+
+}
+

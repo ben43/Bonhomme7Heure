@@ -32,6 +32,18 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void MoveRight(float Axis);
 
+	UFUNCTION(BlueprintCallable)
+		void StopMovement();
+
+	UFUNCTION(BlueprintCallable)
+		void StartMovement();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Axis)
+		float ForwardAxisValue;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Axis)
+		float RightAxisValue;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
