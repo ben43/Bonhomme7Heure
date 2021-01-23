@@ -44,6 +44,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Axis)
 		float RightAxisValue;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		bool InteractionOccuring;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

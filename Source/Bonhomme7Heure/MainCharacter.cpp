@@ -66,7 +66,11 @@ void AMainCharacter::MoveForward(float Axis)
 
 	FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
 	ForwardAxisValue = Axis;
-	AddMovementInput(Direction, Axis);
+
+	if (InteractionOccuring == false)
+	{
+		AddMovementInput(Direction, Axis);
+	}
 }
 
 
@@ -77,7 +81,12 @@ void AMainCharacter::MoveRight(float Axis)
 
 	FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 	RightAxisValue = Axis;
-	AddMovementInput(Direction, Axis);
+
+	if(InteractionOccuring == false)
+	{
+		AddMovementInput(Direction, Axis);
+	}
+	
 }
 
 void AMainCharacter::StopMovement()
