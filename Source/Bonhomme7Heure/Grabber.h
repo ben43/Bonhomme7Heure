@@ -34,9 +34,12 @@ public:
 private:
 
 	UPROPERTY(EditAnywhere)
-		float Reach = 200.f;
+		float Reach = 80.f;
+
+	FVector CollisionLocation;
+	float grabbedDistance;
 	UPROPERTY(EditAnywhere)
-		float GrabberMaxMass = 0.0f;
+		float GrabberMaxMass = 1000.0f;
 
 	UPhysicsHandleComponent* physichandler = nullptr;
 	UInputComponent* InputComponent = nullptr;
@@ -61,6 +64,8 @@ private:
 	FVector GetPlayerViewLocation();
 
 	FVector GetLineTraceEnd();
+
+	FVector HoldingDistance();
 
 
 };

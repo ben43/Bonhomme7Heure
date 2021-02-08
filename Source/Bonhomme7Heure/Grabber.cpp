@@ -5,6 +5,7 @@
 #include "GameFramework/PlayerController.h"
 #include "Components/InputComponent.h"
 #include "Components/PrimitiveComponent.h"
+#include "Kismet/KismetMathLibrary.h"
 #include "Grabber.h"
 
 // Sets default values for this component's properties
@@ -170,9 +171,14 @@ FHitResult UGrabber::GetFirstPhysicBodyInReach()
 	if(ActorHit)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("%s was hit by the grabber"), *ActorHit->GetName());
+
+		//CollisionLocation = Hit.ImpactPoint;
+
+		//grabbedDistance = UKismetMathLibrary::Vector_Distance(CollisionLocation, GetOwner()->GetActorLocation());
+
 	}
 
-	/*
+	
 	DrawDebugLine(
 		GetWorld(),
 		playerViewLocation,
@@ -183,7 +189,7 @@ FHitResult UGrabber::GetFirstPhysicBodyInReach()
 		0,
 		5.f
 	);
-	*/
+	
 	return Hit;
 
 }
@@ -219,5 +225,14 @@ FVector UGrabber::GetLineTraceEnd()
 
 	return lineTraceEnd;
 }
+/*
+FVector UGrabber::HoldingDistance() 
+{
+	FRotator playerViewRotation = playerArrow->GetComponentRotation();
+	FVector playerViewLocation = playerArrow->GetComponentLocation();
 
+	FVector lineTraceEnd = playerViewLocation + playerViewRotation.Vector() * grabbedDistance - 10;
 
+	return lineTraceEnd;
+}
+*/
