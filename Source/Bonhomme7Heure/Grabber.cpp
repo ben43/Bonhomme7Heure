@@ -61,6 +61,25 @@ void UGrabber::FindPhysicsHandle()
 	}
 }
 
+float UGrabber::GetDistance2Owner(FVector impactPoint) 
+{
+	FVector StartingVector = playerArrow->GetComponentLocation();
+
+	float X = StartingVector.X - impactPoint.X;
+	float Y = StartingVector.Y - impactPoint.Y;
+	float Z = StartingVector.Z - impactPoint.Z;
+
+	X = pow(X, 2);
+	Y = pow(Y, 2);
+	Z = pow(Z, 2);
+
+	float Distance = X + Y + Z;
+	Distance = sqrt(Distance);
+	Distance = abs(Distance);
+
+	return Distance;
+}
+
 
 
 // Called every frame
@@ -74,7 +93,7 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 	//Make the object follow the player
 	if(physichandler->GrabbedComponent)
 	{
-		physichandler->SetTargetLocation(GetLineTraceEnd());
+		physichandler->SetTargetLocation(HoldingDistance());
 	}
 }
 
@@ -94,7 +113,7 @@ void UGrabber::Grab()
 	ActorsHits = ActorHit;
 
 	//Get the range of the ray-cast for the handler to grab it at the good range
-	FVector LineTraceEnd = GetLineTraceEnd();
+	FVector LineTraceEnd = HoldingDistance();
 
 
 
@@ -172,9 +191,9 @@ FHitResult UGrabber::GetFirstPhysicBodyInReach()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("%s was hit by the grabber"), *ActorHit->GetName());
 
-		//CollisionLocation = Hit.ImpactPoint;
+		CollisionLocation = Hit.ImpactPoint;
 
-		//grabbedDistance = UKismetMathLibrary::Vector_Distance(CollisionLocation, GetOwner()->GetActorLocation());
+		grabbedDistance = GetDistance2Owner(CollisionLocation);
 
 	}
 
@@ -225,14 +244,14 @@ FVector UGrabber::GetLineTraceEnd()
 
 	return lineTraceEnd;
 }
-/*
+
 FVector UGrabber::HoldingDistance() 
 {
 	FRotator playerViewRotation = playerArrow->GetComponentRotation();
 	FVector playerViewLocation = playerArrow->GetComponentLocation();
 
-	FVector lineTraceEnd = playerViewLocation + playerViewRotation.Vector() * grabbedDistance - 10;
+	FVector lineTraceEnd = playerViewLocation + playerViewRotation.Vector() * grabbedDistance;
 
 	return lineTraceEnd;
 }
-*/
+

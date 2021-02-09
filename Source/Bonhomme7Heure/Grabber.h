@@ -51,7 +51,7 @@ private:
 	UFUNCTION(BlueprintCallable)
 		void Release();
 
-
+	float GetDistance2Owner(FVector impactPoint);
 	void FindPhysicsHandle();
 	void FindArrowComponent();
 	void SetupInputComponent();
