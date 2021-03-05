@@ -1,0 +1,2 @@
+.wav et mono pour sfx
+.wav stéréo pour music/UI/
