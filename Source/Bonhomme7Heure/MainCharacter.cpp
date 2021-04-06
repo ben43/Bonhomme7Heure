@@ -61,32 +61,36 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
 void AMainCharacter::MoveForward(float Axis)
 {
-	FRotator Rotation = Controller->GetControlRotation();
-	FRotator YawRotation(0.0f, Rotation.Yaw, 0.0f);
+	if (Controller != nullptr) {
+		FRotator Rotation = Controller->GetControlRotation();
 
-	FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
-	ForwardAxisValue = Axis;
+		FRotator YawRotation(0.0f, Rotation.Yaw, 0.0f);
 
-	if (InteractionOccuring == false)
-	{
-		AddMovementInput(Direction, Axis);
+		FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+		ForwardAxisValue = Axis;
+
+		if (InteractionOccuring == false)
+		{
+			AddMovementInput(Direction, Axis);
+		}
 	}
 }
 
 
 void AMainCharacter::MoveRight(float Axis)
 {
-	FRotator Rotation = Controller->GetControlRotation();
-	FRotator YawRotation(0.0f, Rotation.Yaw, 0.0f);
+	if (Controller != nullptr) {
+		FRotator Rotation = Controller->GetControlRotation();
+		FRotator YawRotation(0.0f, Rotation.Yaw, 0.0f);
 
-	FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
-	RightAxisValue = Axis;
+		FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
+		RightAxisValue = Axis;
 
-	if(InteractionOccuring == false)
-	{
-		AddMovementInput(Direction, Axis);
+		if (InteractionOccuring == false)
+		{
+			AddMovementInput(Direction, Axis);
+		}
 	}
-	
 }
 
 void AMainCharacter::StopMovement()
